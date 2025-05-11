@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_11_013152) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_11_073125) do
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "status"
     t.string "category"
     t.integer "workspace_id", null: false
-    t.integer "assigned_user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "assigned_user_id", null: false
     t.index ["assigned_user_id"], name: "index_tasks_on_assigned_user_id"
     t.index ["workspace_id"], name: "index_tasks_on_workspace_id"
   end
@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_11_013152) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "tasks", "assigned_users"
+  add_foreign_key "tasks", "users", column: "assigned_user_id"
   add_foreign_key "tasks", "workspaces"
   add_foreign_key "user_workspaces", "users"
   add_foreign_key "user_workspaces", "workspaces"
