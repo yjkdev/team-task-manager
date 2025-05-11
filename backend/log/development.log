@@ -1035,3 +1035,16 @@ Processing by Admin::TaskProgressReportsController#index as */*
 Completed 200 OK in 53ms (Views: 15.3ms | ActiveRecord: 3.9ms | Allocations: 29990)
 
 
+Started GET "/workspaces/1/tasks?assigned_user_id=1" for ::1 at 2025-05-12 00:20:37 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#index as */*
+  Parameters: {"assigned_user_id"=>"1", "workspace_id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ? AND "workspaces"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:3:in `index'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."workspace_id" = ? AND "tasks"."assigned_user_id" = ?[0m  [["workspace_id", 1], ["assigned_user_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:12:in `index'
+Completed 200 OK in 123ms (Views: 14.9ms | ActiveRecord: 3.5ms | Allocations: 96635)
+
+
