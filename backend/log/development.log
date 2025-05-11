@@ -86,3 +86,849 @@ DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rail
 Completed 200 OK in 302ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 55920)
 
 
+Started POST "/login" for ::1 at 2025-05-11 13:55:01 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"dev@example.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dev@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dev@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from create at /home/jit/team-task-manager/backend/app/controllers/sessions_controller.rb:6)
+Completed 200 OK in 293ms (Views: 0.2ms | ActiveRecord: 2.6ms | Allocations: 55942)
+
+
+Started GET "/me" for ::1 at 2025-05-11 14:05:17 +0900
+Processing by ProfilesController#show as */*
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 269)
+
+
+Started POST "/login" for ::1 at 2025-05-11 14:05:35 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"dev@example.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dev@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dev@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from create at /home/jit/team-task-manager/backend/app/controllers/sessions_controller.rb:7)
+Completed 200 OK in 284ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 55939)
+
+
+Started GET "/me" for ::1 at 2025-05-11 14:07:31 +0900
+Processing by ProfilesController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1222)
+
+
+Started POST "/workspaces" for ::1 at 2025-05-11 15:02:03 +0900
+Processing by WorkspacesController#create as */*
+  Parameters: {"workspace"=>{"name"=>"개발팀"}}
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/workspaces_controller.rb:4:in `create'
+  [1m[36mWorkspace Create (1.9ms)[0m  [1m[32mINSERT INTO "workspaces" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "개발팀"], ["created_at", "2025-05-11 06:02:03.623393"], ["updated_at", "2025-05-11 06:02:03.623393"]]
+  ↳ app/controllers/workspaces_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/workspaces_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/workspaces_controller.rb:5:in `create'
+  [1m[36mUserWorkspace Create (1.0ms)[0m  [1m[32mINSERT INTO "user_workspaces" ("user_id", "workspace_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["workspace_id", 1], ["created_at", "2025-05-11 06:02:03.662861"], ["updated_at", "2025-05-11 06:02:03.662861"]]
+  ↳ app/controllers/workspaces_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/workspaces_controller.rb:5:in `create'
+Completed 201 Created in 69ms (Views: 0.7ms | ActiveRecord: 13.6ms | Allocations: 37806)
+
+
+Started GET "/workspaces" for ::1 at 2025-05-11 15:07:26 +0900
+Processing by WorkspacesController#index as */*
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.2ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/workspaces_controller.rb:22:in `index'
+Completed 200 OK in 68ms (Views: 28.1ms | ActiveRecord: 2.6ms | Allocations: 26740)
+
+
+Started GET "/workspaces/1/tasks" for ::1 at 2025-05-11 15:12:13 +0900
+  
+AbstractController::ActionNotFound (The action 'index_by_workspace' could not be found for TasksController):
+  
+actionpack (7.1.5.1) lib/abstract_controller/base.rb:155:in `process'
+actionpack (7.1.5.1) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.5.1) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.5.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.5.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.5.1) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.1.14) lib/rack/etag.rb:29:in `call'
+rack (3.1.14) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.14) lib/rack/head.rb:15:in `call'
+activerecord (7.1.5.1) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.5.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.5.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.5.1) lib/active_support/tagged_logging.rb:139:in `block in tagged'
+activesupport (7.1.5.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.5.1) lib/active_support/tagged_logging.rb:139:in `tagged'
+activesupport (7.1.5.1) lib/active_support/broadcast_logger.rb:241:in `method_missing'
+railties (7.1.5.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.1.14) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.1.14) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.5.1) lib/rails/engine.rb:536:in `call'
+puma (6.6.0) lib/puma/configuration.rb:279:in `call'
+puma (6.6.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in `process_client'
+puma (6.6.0) lib/puma/server.rb:254:in `block in run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 15:20:38 +0900
+Processing by TasksController#create as */*
+  Parameters: {"task"=>{"title"=>"보고서 작성", "description"=>"주간 보고서 초안 작성", "status"=>"todo", "category"=>"문서", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 407)
+
+
+  
+Zeitwerk::NameError (expected file /home/jit/team-task-manager/backend/app/models/user.rb to define constant User, but didn't):
+  
+app/controllers/application_controller.rb:11:in `authorize_request'
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 15:24:58 +0900
+Processing by TasksController#create as */*
+  Parameters: {"task"=>{"title"=>"보고서 작성", "description"=>"주간 보고서 초안 작성", "status"=>"todo", "category"=>"문서", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "category", "workspace_id", "assigned_user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "보고서 작성"], ["description", "주간 보고서 초안 작성"], ["status", "todo"], ["category", "문서"], ["workspace_id", 1], ["assigned_user_id", 1], ["created_at", "2025-05-11 06:24:58.234132"], ["updated_at", "2025-05-11 06:24:58.234132"]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 5.6ms | Allocations: 37145)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: main.assigned_users):
+  
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 15:25:30 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#create as */*
+  Parameters: {"task"=>{"title"=>"보고서 작성", "description"=>"주간 보고서 초안 작성", "status"=>"todo", "category"=>"문서", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "category", "workspace_id", "assigned_user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "보고서 작성"], ["description", "주간 보고서 초안 작성"], ["status", "todo"], ["category", "문서"], ["workspace_id", 1], ["assigned_user_id", 1], ["created_at", "2025-05-11 06:25:30.662504"], ["updated_at", "2025-05-11 06:25:30.662504"]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 4.0ms | Allocations: 78821)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: main.assigned_users):
+  
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkspace Load (0.2ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/login" for ::1 at 2025-05-11 15:28:10 +0900
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"dev@example.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dev@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dev@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from create at /home/jit/team-task-manager/backend/app/controllers/sessions_controller.rb:7)
+Completed 200 OK in 218ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 1413)
+
+
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 15:28:26 +0900
+Processing by TasksController#create as */*
+  Parameters: {"task"=>{"title"=>"보고서 작성", "description"=>"주간 보고서 초안 작성", "status"=>"todo", "category"=>"문서", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mWorkspace Load (1.2ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "category", "workspace_id", "assigned_user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "보고서 작성"], ["description", "주간 보고서 초안 작성"], ["status", "todo"], ["category", "문서"], ["workspace_id", 1], ["assigned_user_id", 1], ["created_at", "2025-05-11 06:28:26.456140"], ["updated_at", "2025-05-11 06:28:26.456140"]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.9ms | Allocations: 4321)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: main.assigned_users):
+  
+Started POST "/login" for ::1 at 2025-05-11 15:28:44 +0900
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"dev@example.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dev@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dev@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from create at /home/jit/team-task-manager/backend/app/controllers/sessions_controller.rb:7)
+Completed 200 OK in 239ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 719)
+
+
+Started POST "/login" for ::1 at 2025-05-11 15:28:46 +0900
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"dev@example.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dev@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dev@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from create at /home/jit/team-task-manager/backend/app/controllers/sessions_controller.rb:7)
+Completed 200 OK in 212ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 703)
+
+
+Started POST "/login" for ::1 at 2025-05-11 15:28:48 +0900
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"dev@example.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dev@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dev@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from create at /home/jit/team-task-manager/backend/app/controllers/sessions_controller.rb:7)
+Completed 200 OK in 212ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 718)
+
+
+Started GET "/me" for ::1 at 2025-05-11 15:29:45 +0900
+Processing by ProfilesController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 842)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 16:00:14 +0900
+Processing by TasksController#create as */*
+  Parameters: {"task"=>{"title"=>"보고서 작성", "description"=>"주간 보고서 초안 작성", "status"=>"todo", "category"=>"문서", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "category", "workspace_id", "assigned_user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "보고서 작성"], ["description", "주간 보고서 초안 작성"], ["status", "todo"], ["category", "문서"], ["workspace_id", 1], ["assigned_user_id", 1], ["created_at", "2025-05-11 07:00:14.964078"], ["updated_at", "2025-05-11 07:00:14.964078"]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 5.9ms | Allocations: 23184)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: main.assigned_users):
+  
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 16:01:18 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#create as */*
+  Parameters: {"task"=>{"title"=>"보고서 작성", "description"=>"주간 보고서 초안 작성", "status"=>"todo", "category"=>"문서", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mWorkspace Load (0.5ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "category", "workspace_id", "assigned_user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "보고서 작성"], ["description", "주간 보고서 초안 작성"], ["status", "todo"], ["category", "문서"], ["workspace_id", 1], ["assigned_user_id", 1], ["created_at", "2025-05-11 07:01:18.693548"], ["updated_at", "2025-05-11 07:01:18.693548"]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+Completed 500 Internal Server Error in 121ms (ActiveRecord: 5.7ms | Allocations: 78808)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: main.assigned_users):
+  
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAssignedUserIdToTasks (20250511070916)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "status" varchar DEFAULT NULL, "category" varchar DEFAULT NULL, "workspace_id" integer NOT NULL, "assigned_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_assigned_user_id" ON "atasks" ("assigned_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_workspace_id" ON "atasks" ("workspace_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","description","status","category","workspace_id","assigned_user_id","created_at","updated_at")
+                     SELECT "id","title","description","status","category","workspace_id","assigned_user_id","created_at","updated_at" FROM "tasks"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "tasks"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddFkToAssignedUserIdOnTasks (20250511071301)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "status" varchar DEFAULT NULL, "category" varchar DEFAULT NULL, "workspace_id" integer NOT NULL, "assigned_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_assigned_user_id" ON "atasks" ("assigned_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_workspace_id" ON "atasks" ("workspace_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","description","status","category","workspace_id","assigned_user_id","created_at","updated_at")
+                     SELECT "id","title","description","status","category","workspace_id","assigned_user_id","created_at","updated_at" FROM "tasks"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "tasks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "status" varchar DEFAULT NULL, "category" varchar DEFAULT NULL, "workspace_id" integer NOT NULL, "assigned_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_190ed5bb66"
+FOREIGN KEY ("assigned_user_id")
+  REFERENCES "assigned_users" ("id")
+, CONSTRAINT "fk_rails_e21c9f6818"
+FOREIGN KEY ("workspace_id")
+  REFERENCES "workspaces" ("id")
+, CONSTRAINT "fk_rails_190ed5bb66"
+FOREIGN KEY ("assigned_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_workspace_id" ON "tasks" ("workspace_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_assigned_user_id" ON "tasks" ("assigned_user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","description","status","category","workspace_id","assigned_user_id","created_at","updated_at")
+                     SELECT "id","title","description","status","category","workspace_id","assigned_user_id","created_at","updated_at" FROM "atasks"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddFkToAssignedUserIdOnTasks (20250511071301)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "status" varchar DEFAULT NULL, "category" varchar DEFAULT NULL, "workspace_id" integer NOT NULL, "assigned_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_assigned_user_id" ON "atasks" ("assigned_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_workspace_id" ON "atasks" ("workspace_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","description","status","category","workspace_id","assigned_user_id","created_at","updated_at")
+                     SELECT "id","title","description","status","category","workspace_id","assigned_user_id","created_at","updated_at" FROM "tasks"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "tasks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "status" varchar DEFAULT NULL, "category" varchar DEFAULT NULL, "workspace_id" integer NOT NULL, "assigned_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_190ed5bb66"
+FOREIGN KEY ("assigned_user_id")
+  REFERENCES "assigned_users" ("id")
+, CONSTRAINT "fk_rails_e21c9f6818"
+FOREIGN KEY ("workspace_id")
+  REFERENCES "workspaces" ("id")
+, CONSTRAINT "fk_rails_190ed5bb66"
+FOREIGN KEY ("assigned_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_workspace_id" ON "tasks" ("workspace_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_assigned_user_id" ON "tasks" ("assigned_user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","description","status","category","workspace_id","assigned_user_id","created_at","updated_at")
+                     SELECT "id","title","description","status","category","workspace_id","assigned_user_id","created_at","updated_at" FROM "atasks"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTasks (20250511013152)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE "tasks"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20250511013152'[0m
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTasks (20250511013152)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "status" varchar, "category" varchar, "workspace_id" integer NOT NULL, "assigned_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_e21c9f6818"
+FOREIGN KEY ("workspace_id")
+  REFERENCES "workspaces" ("id")
+, CONSTRAINT "fk_rails_190ed5bb66"
+FOREIGN KEY ("assigned_user_id")
+  REFERENCES "assigned_users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_workspace_id" ON "tasks" ("workspace_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_assigned_user_id" ON "tasks" ("assigned_user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250511013152') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to FixAssignedUserReferenceInTasks (20250511073125)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "status" varchar DEFAULT NULL, "category" varchar DEFAULT NULL, "workspace_id" integer NOT NULL, "assigned_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_assigned_user_id" ON "atasks" ("assigned_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_workspace_id" ON "atasks" ("workspace_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","description","status","category","workspace_id","assigned_user_id","created_at","updated_at")
+                     SELECT "id","title","description","status","category","workspace_id","assigned_user_id","created_at","updated_at" FROM "tasks"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "tasks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "status" varchar DEFAULT NULL, "category" varchar DEFAULT NULL, "workspace_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_e21c9f6818"
+FOREIGN KEY ("workspace_id")
+  REFERENCES "workspaces" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_workspace_id" ON "tasks" ("workspace_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","description","status","category","workspace_id","created_at","updated_at")
+                     SELECT "id","title","description","status","category","workspace_id","created_at","updated_at" FROM "atasks"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "atasks"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "status" varchar DEFAULT NULL, "category" varchar DEFAULT NULL, "workspace_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_workspace_id" ON "atasks" ("workspace_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","description","status","category","workspace_id","created_at","updated_at")
+                     SELECT "id","title","description","status","category","workspace_id","created_at","updated_at" FROM "tasks"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "tasks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "status" varchar DEFAULT NULL, "category" varchar DEFAULT NULL, "workspace_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "assigned_user_id" integer NOT NULL, CONSTRAINT "fk_rails_e21c9f6818"
+FOREIGN KEY ("workspace_id")
+  REFERENCES "workspaces" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_workspace_id" ON "tasks" ("workspace_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","description","status","category","workspace_id","created_at","updated_at")
+                     SELECT "id","title","description","status","category","workspace_id","created_at","updated_at" FROM "atasks"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "atasks"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_assigned_user_id" ON "tasks" ("assigned_user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "status" varchar DEFAULT NULL, "category" varchar DEFAULT NULL, "workspace_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "assigned_user_id" integer NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_assigned_user_id" ON "atasks" ("assigned_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atasks_on_workspace_id" ON "atasks" ("workspace_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atasks" ("id","title","description","status","category","workspace_id","created_at","updated_at","assigned_user_id")
+                     SELECT "id","title","description","status","category","workspace_id","created_at","updated_at","assigned_user_id" FROM "tasks"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "tasks"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "status" varchar DEFAULT NULL, "category" varchar DEFAULT NULL, "workspace_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "assigned_user_id" integer NOT NULL, CONSTRAINT "fk_rails_e21c9f6818"
+FOREIGN KEY ("workspace_id")
+  REFERENCES "workspaces" ("id")
+, CONSTRAINT "fk_rails_190ed5bb66"
+FOREIGN KEY ("assigned_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_workspace_id" ON "tasks" ("workspace_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_tasks_on_assigned_user_id" ON "tasks" ("assigned_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("id","title","description","status","category","workspace_id","created_at","updated_at","assigned_user_id")
+                     SELECT "id","title","description","status","category","workspace_id","created_at","updated_at","assigned_user_id" FROM "atasks"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "atasks"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250511073125') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/signup" for ::1 at 2025-05-11 16:56:17 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"김개발", "email"=>"dev@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "김개발"], ["email", "dev@example.com"], ["password_digest", "[FILTERED]"], ["created_at", "2025-05-11 07:56:17.435911"], ["updated_at", "2025-05-11 07:56:17.435911"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 245ms (Views: 0.3ms | ActiveRecord: 6.7ms | Allocations: 41315)
+
+
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 16:56:32 +0900
+Processing by TasksController#create as */*
+  Parameters: {"task"=>{"title"=>"보고서 작성", "description"=>"주간 보고서 초안 작성", "status"=>"todo", "category"=>"문서", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mWorkspace Load (0.4ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTask Create (0.8ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "category", "workspace_id", "created_at", "updated_at", "assigned_user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "보고서 작성"], ["description", "주간 보고서 초안 작성"], ["status", "todo"], ["category", "문서"], ["workspace_id", 1], ["created_at", "2025-05-11 07:56:32.883133"], ["updated_at", "2025-05-11 07:56:32.883133"], ["assigned_user_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:11:in `create'
+Completed 201 Created in 128ms (Views: 0.6ms | ActiveRecord: 10.1ms | Allocations: 35982)
+
+
+Started PATCH "/workspaces/1/tasks/1" for ::1 at 2025-05-11 17:05:52 +0900
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for TasksController):
+  
+actionpack (7.1.5.1) lib/abstract_controller/base.rb:155:in `process'
+actionpack (7.1.5.1) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.5.1) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.5.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.5.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.5.1) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.1.14) lib/rack/etag.rb:29:in `call'
+rack (3.1.14) lib/rack/conditional_get.rb:43:in `call'
+rack (3.1.14) lib/rack/head.rb:15:in `call'
+activerecord (7.1.5.1) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.5.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.5.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.5.1) lib/active_support/tagged_logging.rb:139:in `block in tagged'
+activesupport (7.1.5.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.5.1) lib/active_support/tagged_logging.rb:139:in `tagged'
+activesupport (7.1.5.1) lib/active_support/broadcast_logger.rb:241:in `method_missing'
+railties (7.1.5.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.1.14) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.1.14) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.5.1) lib/rails/engine.rb:536:in `call'
+puma (6.6.0) lib/puma/configuration.rb:279:in `call'
+puma (6.6.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in `process_client'
+puma (6.6.0) lib/puma/server.rb:254:in `block in run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started PATCH "/workspaces/1/tasks/1" for ::1 at 2025-05-11 17:10:02 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for TasksController):
+  
+actionpack (7.1.5.1) lib/abstract_controller/base.rb:155:in `process'
+actionpack (7.1.5.1) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.5.1) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.5.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.5.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.5.1) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.1.14) lib/rack/etag.rb:29:in `call'
+rack (3.1.14) lib/rack/conditional_get.rb:43:in `call'
+rack (3.1.14) lib/rack/head.rb:15:in `call'
+activerecord (7.1.5.1) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.5.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.5.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.5.1) lib/active_support/tagged_logging.rb:139:in `block in tagged'
+activesupport (7.1.5.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.5.1) lib/active_support/tagged_logging.rb:139:in `tagged'
+activesupport (7.1.5.1) lib/active_support/broadcast_logger.rb:241:in `method_missing'
+railties (7.1.5.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.1.14) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.1.14) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.5.1) lib/rails/engine.rb:536:in `call'
+puma (6.6.0) lib/puma/configuration.rb:279:in `call'
+puma (6.6.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in `process_client'
+puma (6.6.0) lib/puma/server.rb:254:in `block in run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started PATCH "/workspaces/1/tasks/1" for ::1 at 2025-05-11 17:11:59 +0900
+Processing by TasksController#update as */*
+  Parameters: {"task"=>{"status"=>"in_progress", "title"=>"보고서 수정"}, "workspace_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? AND "tasks"."workspace_id" = ? LIMIT ?[0m  [["id", 1], ["workspace_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:21:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:24:in `update'
+  [1m[36mTask Update (1.9ms)[0m  [1m[33mUPDATE "tasks" SET "title" = ?, "status" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["title", "보고서 수정"], ["status", "in_progress"], ["updated_at", "2025-05-11 08:11:59.701057"], ["id", 1]]
+  ↳ app/controllers/tasks_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:24:in `update'
+Completed 200 OK in 99ms (Views: 0.4ms | ActiveRecord: 46.2ms | Allocations: 68494)
+
+
+Started DELETE "/workspaces/1/tasks/1" for ::1 at 2025-05-11 17:17:41 +0900
+Processing by TasksController#destroy as */*
+  Parameters: {"workspace_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? AND "tasks"."workspace_id" = ? LIMIT ?[0m  [["id", 1], ["workspace_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:36:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:39:in `destroy'
+  [1m[36mTask Destroy (0.8ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/tasks_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:39:in `destroy'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 5.9ms | Allocations: 3026)
+
+
+Started PATCH "/workspaces/1/tasks/1/toggle_status" for ::1 at 2025-05-11 18:42:31 +0900
+  
+SyntaxError (/home/jit/team-task-manager/backend/config/routes.rb:18: syntax error, unexpected end-of-input, expecting `end'):
+  
+config/routes.rb:18: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 18:45:28 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/workspaces/1/tasks"):
+  
+Started POST "/signup" for ::1 at 2025-05-11 18:46:02 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/signup"):
+  
+Started POST "/signup" for ::1 at 2025-05-11 18:52:17 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"설수현", "email"=>"tjftngus@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "설수현"], ["email", "tjftngus@example.com"], ["password_digest", "[FILTERED]"], ["created_at", "2025-05-11 09:52:17.716478"], ["updated_at", "2025-05-11 09:52:17.716478"]]
+  ↳ app/controllers/users_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:5:in `create'
+Completed 201 Created in 273ms (Views: 0.4ms | ActiveRecord: 9.2ms | Allocations: 41313)
+
+
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 18:53:06 +0900
+Processing by TasksController#create as */*
+  Parameters: {"task"=>{"title"=>"보고서 작성", "description"=>"팀 주간 보고서 작성", "status"=>"todo", "category"=>"문서", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 272)
+
+
+Started PATCH "/workspaces/1/tasks/1/toggle_status" for ::1 at 2025-05-11 18:53:21 +0900
+Processing by TasksController#toggle_status as */*
+  Parameters: {"workspace_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? AND "tasks"."workspace_id" = ? LIMIT ?[0m  [["id", 1], ["workspace_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:48:in `toggle_status'
+Completed 404 Not Found in 18ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 5618)
+
+
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 18:56:13 +0900
+Processing by TasksController#create as */*
+  Parameters: {"task"=>{"title"=>"보고서 작성", "description"=>"주간 보고서 초안 작성", "status"=>"todo", "category"=>"문서", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "category", "workspace_id", "created_at", "updated_at", "assigned_user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "보고서 작성"], ["description", "주간 보고서 초안 작성"], ["status", "todo"], ["category", "문서"], ["workspace_id", 1], ["created_at", "2025-05-11 09:56:13.353429"], ["updated_at", "2025-05-11 09:56:13.353429"], ["assigned_user_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+Completed 201 Created in 44ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 32670)
+
+
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 18:56:21 +0900
+Processing by TasksController#create as */*
+  Parameters: {"task"=>{"title"=>"회의 준비", "description"=>"자료 정리 및 발표 연습", "status"=>"todo", "category"=>"업무", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+  [1m[36mWorkspace Load (1.4ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "category", "workspace_id", "created_at", "updated_at", "assigned_user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "회의 준비"], ["description", "자료 정리 및 발표 연습"], ["status", "todo"], ["category", "업무"], ["workspace_id", 1], ["created_at", "2025-05-11 09:56:21.700625"], ["updated_at", "2025-05-11 09:56:21.700625"], ["assigned_user_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+Completed 201 Created in 9ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 4243)
+
+
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 18:56:27 +0900
+Processing by TasksController#create as */*
+  Parameters: {"task"=>{"title"=>"메일 정리", "description"=>"고객사 문의 회신", "status"=>"todo", "category"=>"관리", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+  [1m[36mWorkspace Load (0.8ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "category", "workspace_id", "created_at", "updated_at", "assigned_user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "메일 정리"], ["description", "고객사 문의 회신"], ["status", "todo"], ["category", "관리"], ["workspace_id", 1], ["created_at", "2025-05-11 09:56:27.403214"], ["updated_at", "2025-05-11 09:56:27.403214"], ["assigned_user_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:12:in `create'
+Completed 201 Created in 7ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 4150)
+
+
+Started PATCH "/workspaces/1/tasks/2/toggle_status" for ::1 at 2025-05-11 18:56:46 +0900
+Processing by TasksController#toggle_status as */*
+  Parameters: {"workspace_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? AND "tasks"."workspace_id" = ? LIMIT ?[0m  [["id", 2], ["workspace_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:48:in `toggle_status'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:52:in `toggle_status'
+  [1m[36mTask Update (1.1ms)[0m  [1m[33mUPDATE "tasks" SET "status" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["status", "done"], ["updated_at", "2025-05-11 09:56:46.244941"], ["id", 2]]
+  ↳ app/controllers/tasks_controller.rb:52:in `toggle_status'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:52:in `toggle_status'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 3080)
+
+
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 19:38:30 +0900
+Processing by TasksController#create as */*
+  Parameters: {"task"=>{"title"=>"회의록 정리", "description"=>"주간 회의록을 정리한다", "status"=>"done", "category"=>"문서", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mWorkspace Load (1.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "category", "workspace_id", "created_at", "updated_at", "assigned_user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "회의록 정리"], ["description", "주간 회의록을 정리한다"], ["status", "done"], ["category", "문서"], ["workspace_id", 1], ["created_at", "2025-05-11 10:38:30.694381"], ["updated_at", "2025-05-11 10:38:30.694381"], ["assigned_user_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+Completed 201 Created in 56ms (Views: 1.0ms | ActiveRecord: 6.8ms | Allocations: 22038)
+
+
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 19:38:35 +0900
+Processing by TasksController#create as */*
+  Parameters: {"task"=>{"title"=>"프로토타입 수정", "description"=>"디자인 피드백 반영", "status"=>"in_progress", "category"=>"디자인", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mWorkspace Load (1.5ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "category", "workspace_id", "created_at", "updated_at", "assigned_user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "프로토타입 수정"], ["description", "디자인 피드백 반영"], ["status", "in_progress"], ["category", "디자인"], ["workspace_id", 1], ["created_at", "2025-05-11 10:38:35.926942"], ["updated_at", "2025-05-11 10:38:35.926942"], ["assigned_user_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+Completed 201 Created in 14ms (Views: 0.5ms | ActiveRecord: 2.3ms | Allocations: 4212)
+
+
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-11 19:38:39 +0900
+Processing by TasksController#create as */*
+  Parameters: {"task"=>{"title"=>"API 명세 작성", "description"=>"Swagger 기반으로 작성", "status"=>"todo", "category"=>"개발", "assigned_user_id"=>2}, "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mWorkspace Load (1.6ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "category", "workspace_id", "created_at", "updated_at", "assigned_user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "API 명세 작성"], ["description", "Swagger 기반으로 작성"], ["status", "todo"], ["category", "개발"], ["workspace_id", 1], ["created_at", "2025-05-11 10:38:39.742601"], ["updated_at", "2025-05-11 10:38:39.742601"], ["assigned_user_id", 2]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+Completed 201 Created in 15ms (Views: 0.5ms | ActiveRecord: 2.5ms | Allocations: 4174)
+
+
+Started GET "/workspaces/1/tasks?status=done" for ::1 at 2025-05-11 19:40:03 +0900
+Processing by TasksController#index as */*
+  Parameters: {"task"=>{"title"=>"API 명세 작성", "description"=>"Swagger 기반으로 작성", "status"=>"todo", "category"=>"개발", "assigned_user_id"=>2}, "status"=>"done", "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.2ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ? AND "workspaces"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:3:in `index'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."workspace_id" = ? AND "tasks"."status" = ?[0m  [["workspace_id", 1], ["status", "done"]]
+  ↳ app/controllers/tasks_controller.rb:12:in `index'
+Completed 200 OK in 34ms (Views: 2.0ms | ActiveRecord: 0.6ms | Allocations: 11586)
+
+
+Started GET "/workspaces/1/tasks?status=done" for ::1 at 2025-05-11 19:40:13 +0900
+Processing by TasksController#index as */*
+  Parameters: {"status"=>"done", "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ? AND "workspaces"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:3:in `index'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."workspace_id" = ? AND "tasks"."status" = ?[0m  [["workspace_id", 1], ["status", "done"]]
+  ↳ app/controllers/tasks_controller.rb:12:in `index'
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 2526)
+
+
+Started GET "/workspaces/1/tasks?category=%EB%94%94%EC%9E%90%EC%9D%B8" for ::1 at 2025-05-11 19:40:57 +0900
+Processing by TasksController#index as */*
+  Parameters: {"category"=>"디자인", "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ? AND "workspaces"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:3:in `index'
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."workspace_id" = ? AND "tasks"."category" = ?[0m  [["workspace_id", 1], ["category", "디자인"]]
+  ↳ app/controllers/tasks_controller.rb:12:in `index'
+Completed 200 OK in 7ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 2398)
+
+
+Started GET "/workspaces/1/tasks?assigned_user_id=1&status=in_progress" for ::1 at 2025-05-11 19:41:47 +0900
+Processing by TasksController#index as */*
+  Parameters: {"assigned_user_id"=>"1", "status"=>"in_progress", "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ? AND "workspaces"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:3:in `index'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."workspace_id" = ? AND "tasks"."status" = ? AND "tasks"."assigned_user_id" = ?[0m  [["workspace_id", 1], ["status", "in_progress"], ["assigned_user_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:12:in `index'
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 2431)
+
+
+Started GET "/workspaces/1/tasks?assigned_user_id=2" for ::1 at 2025-05-11 19:42:09 +0900
+Processing by TasksController#index as */*
+  Parameters: {"assigned_user_id"=>"2", "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ? AND "workspaces"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:3:in `index'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."workspace_id" = ? AND "tasks"."assigned_user_id" = ?[0m  [["workspace_id", 1], ["assigned_user_id", 2]]
+  ↳ app/controllers/tasks_controller.rb:12:in `index'
+Completed 200 OK in 5ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 2396)
+
+
