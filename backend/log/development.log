@@ -932,3 +932,106 @@ Processing by TasksController#index as */*
 Completed 200 OK in 5ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 2396)
 
 
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:5:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:7:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:7:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:7:in `block (3 levels) in <main>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTaskProgressReports (20250511111727)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "task_progress_reports" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "total_tasks" integer DEFAULT 0 NOT NULL, "done_tasks" integer DEFAULT 0 NOT NULL, "progress_rate" float DEFAULT 0.0 NOT NULL, "collected_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_e10ef51113"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_task_progress_reports_on_user_id" ON "task_progress_reports" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250511111727') RETURNING "version"[0m
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 5], ["done_tasks", 2], ["progress_rate", 40.0], ["collected_at", "2025-05-11 13:37:07.929512"], ["created_at", "2025-05-11 13:37:07.944256"], ["updated_at", "2025-05-11 13:37:07.944256"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-11 13:37:07.951446"], ["created_at", "2025-05-11 13:37:07.953526"], ["updated_at", "2025-05-11 13:37:07.953526"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.4ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-11 13:37:07.956872"], ["created_at", "2025-05-11 13:37:07.959296"], ["updated_at", "2025-05-11 13:37:07.959296"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Load (0.1ms)[0m  [1m[34mSELECT "task_progress_reports".* FROM "task_progress_reports" ORDER BY "task_progress_reports"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/admin/task_progress_reports" for ::1 at 2025-05-11 23:27:09 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::TaskProgressReportsController#index as */*
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 363)
+
+
+Started GET "/admin/task_progress_reports" for ::1 at 2025-05-11 23:28:21 +0900
+Processing by Admin::TaskProgressReportsController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+Completed 500 Internal Server Error in 132ms (ActiveRecord: 9.4ms | Allocations: 58364)
+
+
+  
+NameError (uninitialized constant Admin::TaskProgressReportsController::TaskProgressReport):
+  
+app/controllers/admin/task_progress_reports_controller.rb:4:in `index'
+Started GET "/admin/task_progress_reports" for ::1 at 2025-05-11 23:31:55 +0900
+Processing by Admin::TaskProgressReportsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 4.0ms | Allocations: 10330)
+
+
+  
+NameError (uninitialized constant TaskProgressReport):
+  
+app/controllers/admin/task_progress_reports_controller.rb:4:in `index'
+Started GET "/admin/task_progress_reports" for ::1 at 2025-05-11 23:34:19 +0900
+Processing by Admin::TaskProgressReportsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTaskProgressReport Load (0.4ms)[0m  [1m[34mSELECT "task_progress_reports".* FROM "task_progress_reports" ORDER BY "task_progress_reports"."collected_at" DESC LIMIT ?[0m  [["LIMIT", 10]]
+  ↳ app/controllers/admin/task_progress_reports_controller.rb:5:in `index'
+Completed 200 OK in 53ms (Views: 15.3ms | ActiveRecord: 3.9ms | Allocations: 29990)
+
+

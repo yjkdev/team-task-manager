@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
+  # admin(관리자)용 집계 결과 조회
+  namespace :admin do
+    resources :task_progress_reports, only: [:index]
+  end
+
   # signup & login & jwt
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
-  get '/me', to: 'profiles#show'  # 로그인된 사용자 정보 조회
+  get '/me', to: 'profiles#show'
 
   # workspace
-  post '/workspaces', to: 'workspaces#create'
-  get '/workspaces', to: 'workspaces#index'
-
-  # task
-  resources :workspaces do
+  resources :workspaces, only: [:create, :index] do
+    # task
     resources :tasks, only: [:index, :create, :update, :destroy] do
       member do
-        patch :toggle_status # /workspaces/:workspace_id/tasks/:id/toggle_status
+        patch :toggle_status
       end
     end
   end
