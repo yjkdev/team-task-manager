@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_11_073125) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_11_111727) do
+  create_table "task_progress_reports", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "total_tasks", default: 0, null: false
+    t.integer "done_tasks", default: 0, null: false
+    t.float "progress_rate", default: 0.0, null: false
+    t.datetime "collected_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_task_progress_reports_on_user_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -47,6 +58,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_11_073125) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "task_progress_reports", "users"
   add_foreign_key "tasks", "users", column: "assigned_user_id"
   add_foreign_key "tasks", "workspaces"
   add_foreign_key "user_workspaces", "users"
