@@ -6957,3 +6957,309 @@ Processing by WorkspacesController#index as HTML
 Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.2ms | Allocations: 1709)
 
 
+Started GET "/admin/task_progress_reports" for ::1 at 2025-05-13 01:16:45 +0900
+Processing by Admin::TaskProgressReportsController#index as HTML
+  [1m[36mUser Load (14.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTaskProgressReport Load (0.9ms)[0m  [1m[34mSELECT "task_progress_reports".* FROM "task_progress_reports" ORDER BY "task_progress_reports"."collected_at" DESC LIMIT ?[0m  [["LIMIT", 10]]
+  ↳ app/controllers/admin/task_progress_reports_controller.rb:9:in `map'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 5], ["id", 4], ["id", 3], ["id", 2], ["id", 1]]
+  ↳ app/controllers/admin/task_progress_reports_controller.rb:9:in `map'
+Completed 200 OK in 91ms (Views: 5.4ms | ActiveRecord: 19.9ms | Allocations: 2774)
+
+
+Started GET "/workspaces" for ::1 at 2025-05-13 01:16:59 +0900
+Processing by WorkspacesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.3ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/workspaces_controller.rb:22:in `index'
+Completed 200 OK in 19ms (Views: 10.0ms | ActiveRecord: 0.5ms | Allocations: 1726)
+
+
+Started POST "/login" for ::1 at 2025-05-13 01:17:09 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"email"=>"tjftngus@naver.com", "password"=>"[FILTERED]", "session"=>{"email"=>"tjftngus@naver.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tjftngus@naver.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+Completed 401 Unauthorized in 10ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 559)
+
+
+Started POST "/login" for ::1 at 2025-05-13 01:17:12 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"email"=>"tjftngus1@naver.com", "password"=>"[FILTERED]", "session"=>{"email"=>"tjftngus1@naver.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tjftngus1@naver.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from create at /home/jit/team-task-manager/backend/app/controllers/sessions_controller.rb:7)
+Completed 200 OK in 228ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 715)
+
+
+Started GET "/workspaces" for ::1 at 2025-05-13 01:17:12 +0900
+Processing by WorkspacesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/workspaces_controller.rb:22:in `index'
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.1ms | Allocations: 1709)
+
+
+Started GET "/admin/task_progress_reports" for ::1 at 2025-05-13 01:17:13 +0900
+Processing by Admin::TaskProgressReportsController#index as HTML
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTaskProgressReport Load (0.3ms)[0m  [1m[34mSELECT "task_progress_reports".* FROM "task_progress_reports" ORDER BY "task_progress_reports"."collected_at" DESC LIMIT ?[0m  [["LIMIT", 10]]
+  ↳ app/controllers/admin/task_progress_reports_controller.rb:9:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 5], ["id", 4], ["id", 3], ["id", 2], ["id", 1]]
+  ↳ app/controllers/admin/task_progress_reports_controller.rb:9:in `map'
+Completed 200 OK in 17ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 2496)
+
+
+Started GET "/workspaces" for ::1 at 2025-05-13 01:17:38 +0900
+Processing by WorkspacesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/workspaces_controller.rb:22:in `index'
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.2ms | Allocations: 1709)
+
+
+Started GET "/admin/task_progress_reports" for ::1 at 2025-05-13 01:17:38 +0900
+Processing by Admin::TaskProgressReportsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTaskProgressReport Load (0.9ms)[0m  [1m[34mSELECT "task_progress_reports".* FROM "task_progress_reports" ORDER BY "task_progress_reports"."collected_at" DESC LIMIT ?[0m  [["LIMIT", 10]]
+  ↳ app/controllers/admin/task_progress_reports_controller.rb:9:in `map'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 5], ["id", 4], ["id", 3], ["id", 2], ["id", 1]]
+  ↳ app/controllers/admin/task_progress_reports_controller.rb:9:in `map'
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 2497)
+
+
+Started GET "/workspaces" for ::1 at 2025-05-13 01:17:40 +0900
+Processing by WorkspacesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.2ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/workspaces_controller.rb:22:in `index'
+Completed 200 OK in 6ms (Views: 2.4ms | ActiveRecord: 0.2ms | Allocations: 1709)
+
+
+Started POST "/login" for ::1 at 2025-05-13 01:20:01 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"email"=>"dev@example.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dev@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dev@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from create at /home/jit/team-task-manager/backend/app/controllers/sessions_controller.rb:7)
+Completed 200 OK in 218ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 718)
+
+
+Started GET "/workspaces" for ::1 at 2025-05-13 01:20:01 +0900
+Processing by WorkspacesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/workspaces_controller.rb:22:in `index'
+Completed 200 OK in 8ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 1641)
+
+
+Started GET "/workspaces/1/tasks" for ::1 at 2025-05-13 01:20:04 +0900
+Processing by TasksController#index as HTML
+  Parameters: {"workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.2ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ? AND "workspaces"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:3:in `index'
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."workspace_id" = ?[0m  [["workspace_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:12:in `index'
+Completed 200 OK in 14ms (Views: 5.5ms | ActiveRecord: 0.8ms | Allocations: 2865)
+
+
+Started GET "/admin/task_progress_reports" for ::1 at 2025-05-13 01:20:18 +0900
+Processing by Admin::TaskProgressReportsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTaskProgressReport Load (0.1ms)[0m  [1m[34mSELECT "task_progress_reports".* FROM "task_progress_reports" ORDER BY "task_progress_reports"."collected_at" DESC LIMIT ?[0m  [["LIMIT", 10]]
+  ↳ app/controllers/admin/task_progress_reports_controller.rb:9:in `map'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?, ?, ?, ?)[0m  [["id", 5], ["id", 4], ["id", 3], ["id", 2], ["id", 1]]
+  ↳ app/controllers/admin/task_progress_reports_controller.rb:9:in `map'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 2496)
+
+
+Started GET "/workspaces" for ::1 at 2025-05-13 01:29:14 +0900
+Processing by WorkspacesController#index as HTML
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (1.3ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/workspaces_controller.rb:22:in `index'
+Completed 200 OK in 73ms (Views: 10.3ms | ActiveRecord: 4.9ms | Allocations: 19206)
+
+
+Started POST "/login" for ::1 at 2025-05-13 01:29:23 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"email"=>"dev@example.com", "password"=>"[FILTERED]", "session"=>{"email"=>"dev@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dev@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from create at /home/jit/team-task-manager/backend/app/controllers/sessions_controller.rb:7)
+Completed 200 OK in 220ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 1191)
+
+
+Started GET "/workspaces" for ::1 at 2025-05-13 01:29:23 +0900
+Processing by WorkspacesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/workspaces_controller.rb:22:in `index'
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.1ms | Allocations: 1735)
+
+
+Started GET "/workspaces/1/tasks" for ::1 at 2025-05-13 01:29:26 +0900
+Processing by TasksController#index as HTML
+  Parameters: {"workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.7ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ? AND "workspaces"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:3:in `index'
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."workspace_id" = ?[0m  [["workspace_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:12:in `index'
+Completed 200 OK in 22ms (Views: 8.2ms | ActiveRecord: 1.7ms | Allocations: 10429)
+
+
+Started GET "/workspaces/5/tasks" for ::1 at 2025-05-13 01:29:26 +0900
+Processing by TasksController#index as HTML
+  Parameters: {"workspace_id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ? AND "workspaces"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:3:in `index'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."workspace_id" = ?[0m  [["workspace_id", 5]]
+  ↳ app/controllers/tasks_controller.rb:12:in `index'
+Completed 200 OK in 7ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 2385)
+
+
+Started GET "/workspaces/1/tasks" for ::1 at 2025-05-13 01:29:27 +0900
+Processing by TasksController#index as HTML
+  Parameters: {"workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ? AND "workspaces"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:3:in `index'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."workspace_id" = ?[0m  [["workspace_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:12:in `index'
+Completed 200 OK in 8ms (Views: 2.2ms | ActiveRecord: 0.2ms | Allocations: 2816)
+
+
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-13 01:29:40 +0900
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"설수현", "description"=>"설수현", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mWorkspace Load (1.3ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mTask Create (7.8ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "category", "workspace_id", "created_at", "updated_at", "assigned_user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "설수현"], ["description", "설수현"], ["status", nil], ["category", nil], ["workspace_id", 1], ["created_at", "2025-05-12 16:29:41.001810"], ["updated_at", "2025-05-12 16:29:41.001810"], ["assigned_user_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+Completed 201 Created in 31ms (Views: 0.5ms | ActiveRecord: 11.6ms | Allocations: 4844)
+
+
+Started POST "/workspaces/1/tasks" for ::1 at 2025-05-13 01:29:46 +0900
+Processing by TasksController#create as HTML
+  Parameters: {"task"=>{"title"=>"설수설수", "description"=>"설수설수", "assigned_user_id"=>1}, "workspace_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mWorkspace Load (2.4ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" WHERE "workspaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("title", "description", "status", "category", "workspace_id", "created_at", "updated_at", "assigned_user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "설수설수"], ["description", "설수설수"], ["status", nil], ["category", nil], ["workspace_id", 1], ["created_at", "2025-05-12 16:29:46.340616"], ["updated_at", "2025-05-12 16:29:46.340616"], ["assigned_user_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:23:in `create'
+Completed 201 Created in 11ms (Views: 0.3ms | ActiveRecord: 2.9ms | Allocations: 4125)
+
+
+Started PATCH "/workspaces/1/tasks/22/toggle_status" for ::1 at 2025-05-13 01:29:47 +0900
+Processing by TasksController#toggle_status as HTML
+  Parameters: {"workspace_id"=>"1", "id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? AND "tasks"."workspace_id" = ? LIMIT ?[0m  [["id", 22], ["workspace_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:59:in `toggle_status'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:63:in `toggle_status'
+  [1m[36mTask Update (0.9ms)[0m  [1m[33mUPDATE "tasks" SET "status" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["status", "done"], ["updated_at", "2025-05-12 16:29:47.086198"], ["id", 22]]
+  ↳ app/controllers/tasks_controller.rb:63:in `toggle_status'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:63:in `toggle_status'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 3135)
+
+
+Started PATCH "/workspaces/1/tasks/23/toggle_status" for ::1 at 2025-05-13 01:29:47 +0900
+Processing by TasksController#toggle_status as HTML
+  Parameters: {"workspace_id"=>"1", "id"=>"23"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTask Load (0.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? AND "tasks"."workspace_id" = ? LIMIT ?[0m  [["id", 23], ["workspace_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:59:in `toggle_status'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:63:in `toggle_status'
+  [1m[36mTask Update (3.2ms)[0m  [1m[33mUPDATE "tasks" SET "status" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["status", "done"], ["updated_at", "2025-05-12 16:29:47.439196"], ["id", 23]]
+  ↳ app/controllers/tasks_controller.rb:63:in `toggle_status'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:63:in `toggle_status'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 5.6ms | Allocations: 2915)
+
+
+Started PUT "/workspaces/1/tasks/22" for ::1 at 2025-05-13 01:29:50 +0900
+Processing by TasksController#update as HTML
+  Parameters: {"task"=>{"title"=>"설수현", "description"=>"설수현22"}, "workspace_id"=>"1", "id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? AND "tasks"."workspace_id" = ? LIMIT ?[0m  [["id", 22], ["workspace_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:35:in `update'
+  [1m[36mTask Update (1.2ms)[0m  [1m[33mUPDATE "tasks" SET "description" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["description", "설수현22"], ["updated_at", "2025-05-12 16:29:50.370707"], ["id", 22]]
+  ↳ app/controllers/tasks_controller.rb:35:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:35:in `update'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 3094)
+
+
+Started DELETE "/workspaces/1/tasks/22" for ::1 at 2025-05-13 01:29:52 +0900
+Processing by TasksController#destroy as HTML
+  Parameters: {"workspace_id"=>"1", "id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? AND "tasks"."workspace_id" = ? LIMIT ?[0m  [["id", 22], ["workspace_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:47:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:50:in `destroy'
+  [1m[36mTask Destroy (0.9ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 22]]
+  ↳ app/controllers/tasks_controller.rb:50:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:50:in `destroy'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 2637)
+
+
+Started DELETE "/workspaces/1/tasks/23" for ::1 at 2025-05-13 01:29:53 +0900
+Processing by TasksController#destroy as HTML
+  Parameters: {"workspace_id"=>"1", "id"=>"23"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? AND "tasks"."workspace_id" = ? LIMIT ?[0m  [["id", 23], ["workspace_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:47:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:50:in `destroy'
+  [1m[36mTask Destroy (4.1ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = ?[0m  [["id", 23]]
+  ↳ app/controllers/tasks_controller.rb:50:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:50:in `destroy'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 4.4ms | Allocations: 2549)
+
+
