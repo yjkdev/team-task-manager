@@ -1,0 +1,224 @@
+rake aborted!
+ActiveRecord::StatementInvalid: Could not find table 'users'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/sqlite3_adapter.rb:458:in `table_structure'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/abstract/schema_statements.rb:109:in `columns'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:346:in `block in columns'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:345:in `fetch'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:345:in `columns'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:354:in `block in columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:353:in `fetch'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:353:in `columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:58:in `columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:188:in `columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:622:in `load_schema!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/attributes.rb:264:in `load_schema!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/encryption/encryptable_record.rb:127:in `load_schema!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:567:in `block in load_schema'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:564:in `synchronize'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:564:in `load_schema'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:425:in `columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1796:in `arel_column'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1941:in `order_column'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1896:in `block (2 levels) in preprocess_order_args'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1891:in `each'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1891:in `map'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1891:in `block in preprocess_order_args'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1886:in `map!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1886:in `preprocess_order_args'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:660:in `reorder!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:655:in `reorder'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/batches.rb:366:in `batch_on_unloaded_relation'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/batches.rb:269:in `in_batches'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/batches.rb:157:in `find_in_batches'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/batches.rb:81:in `find_each'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/querying.rb:23:in `find_each'
+/home/jit/team-task-manager/backend/lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+/var/lib/gems/3.0.0/gems/rake-13.2.1/exe/rake:27:in `<top (required)>'
+Tasks: TOP => task_progress:report
+(See full trace by running task with --trace)
+== タスク進捗レポート ==
+W, [2025-05-12T22:54:03.646737 #88373]  WARN -- : You are running SQLite in production, this is generally not recommended. You can disable this warning by setting "config.active_record.sqlite3_production_warning=false".
+rake aborted!
+ActiveRecord::StatementInvalid: Could not find table 'users'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/sqlite3_adapter.rb:458:in `table_structure'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/abstract/schema_statements.rb:109:in `columns'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:346:in `block in columns'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:345:in `fetch'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:345:in `columns'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:354:in `block in columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:353:in `fetch'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:353:in `columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:58:in `columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:188:in `columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:622:in `load_schema!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/attributes.rb:264:in `load_schema!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/encryption/encryptable_record.rb:127:in `load_schema!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:567:in `block in load_schema'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:564:in `synchronize'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:564:in `load_schema'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:425:in `columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1796:in `arel_column'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1941:in `order_column'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1896:in `block (2 levels) in preprocess_order_args'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1891:in `each'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1891:in `map'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1891:in `block in preprocess_order_args'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1886:in `map!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1886:in `preprocess_order_args'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:660:in `reorder!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:655:in `reorder'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/batches.rb:366:in `batch_on_unloaded_relation'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/batches.rb:269:in `in_batches'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/batches.rb:157:in `find_in_batches'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/batches.rb:81:in `find_each'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/querying.rb:23:in `find_each'
+/home/jit/team-task-manager/backend/lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+/var/lib/gems/3.0.0/gems/rake-13.2.1/exe/rake:27:in `<top (required)>'
+Tasks: TOP => task_progress:report
+(See full trace by running task with --trace)
+== タスク進捗レポート ==
+W, [2025-05-12T22:57:02.497127 #89210]  WARN -- : You are running SQLite in production, this is generally not recommended. You can disable this warning by setting "config.active_record.sqlite3_production_warning=false".
+rake aborted!
+ActiveRecord::StatementInvalid: Could not find table 'users'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/sqlite3_adapter.rb:458:in `table_structure'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/abstract/schema_statements.rb:109:in `columns'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:346:in `block in columns'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:345:in `fetch'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:345:in `columns'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:354:in `block in columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:353:in `fetch'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:353:in `columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:58:in `columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/connection_adapters/schema_cache.rb:188:in `columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:622:in `load_schema!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/attributes.rb:264:in `load_schema!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/encryption/encryptable_record.rb:127:in `load_schema!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:567:in `block in load_schema'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:564:in `synchronize'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:564:in `load_schema'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/model_schema.rb:425:in `columns_hash'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1796:in `arel_column'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1941:in `order_column'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1896:in `block (2 levels) in preprocess_order_args'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1891:in `each'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1891:in `map'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1891:in `block in preprocess_order_args'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1886:in `map!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:1886:in `preprocess_order_args'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:660:in `reorder!'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/query_methods.rb:655:in `reorder'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/batches.rb:366:in `batch_on_unloaded_relation'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/batches.rb:269:in `in_batches'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/batches.rb:157:in `find_in_batches'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/relation/batches.rb:81:in `find_each'
+/var/lib/gems/3.0.0/gems/activerecord-7.1.5.1/lib/active_record/querying.rb:23:in `find_each'
+/home/jit/team-task-manager/backend/lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+/var/lib/gems/3.0.0/gems/rake-13.2.1/exe/rake:27:in `<top (required)>'
+Tasks: TOP => task_progress:report
+(See full trace by running task with --trace)
+== タスク進捗レポート ==
+W, [2025-05-12T23:00:03.222804 #90367]  WARN -- : You are running SQLite in production, this is generally not recommended. You can disable this warning by setting "config.active_record.sqlite3_production_warning=false".
+== タスク進捗レポート ==
+ユーザー：김개발 (ID: 1)
+- 総タスク数: 7
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+ユーザー：김개발 (ID: 2)
+- 総タスク数: 1
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+ユーザー：설수현 (ID: 3)
+- 総タスク数: 0
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+ユーザー：설수현1 (ID: 4)
+- 総タスク数: 0
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+ユーザー：설수현2 (ID: 5)
+- 総タスク数: 0
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+== タスク進捗レポート ==
+ユーザー：김개발 (ID: 1)
+- 総タスク数: 7
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+ユーザー：김개발 (ID: 2)
+- 総タスク数: 1
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+ユーザー：설수현 (ID: 3)
+- 総タスク数: 0
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+ユーザー：설수현1 (ID: 4)
+- 総タスク数: 0
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+ユーザー：설수현2 (ID: 5)
+- 総タスク数: 0
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+== タスク進捗レポート ==
+ユーザー：김개발 (ID: 1)
+- 総タスク数: 7
+- 完了タスク数: 4
+- 進捗率: 57.1%
+---------------------------
+ユーザー：김개발 (ID: 2)
+- 総タスク数: 1
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+ユーザー：설수현 (ID: 3)
+- 総タスク数: 0
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+ユーザー：설수현1 (ID: 4)
+- 総タスク数: 1
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+ユーザー：설수현2 (ID: 5)
+- 総タスク数: 0
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+== タスク進捗レポート ==
+ユーザー：김개발 (ID: 1)
+- 総タスク数: 7
+- 完了タスク数: 4
+- 進捗率: 57.1%
+---------------------------
+ユーザー：김개발 (ID: 2)
+- 総タスク数: 1
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+ユーザー：설수현 (ID: 3)
+- 総タスク数: 0
+- 完了タスク数: 0
+- 進捗率: 0.0%
+---------------------------
+ユーザー：설수현1 (ID: 4)
+- 総タスク数: 5
+- 完了タスク数: 3
+- 進捗率: 60.0%
+---------------------------
+ユーザー：설수현2 (ID: 5)
+- 総タスク数: 5
+- 完了タスク数: 3
+- 進捗率: 60.0%
+---------------------------

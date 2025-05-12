@@ -123,6 +123,10 @@ const handleLogout = () => {
   router.push('/login')
 }
 
+const handleReport = () => {
+  router.push('/report')
+}
+
 watch([statusFilter, categoryFilter], () => {
   if (selectedWorkspaceId.value) fetchTasks(selectedWorkspaceId.value)
 })
@@ -137,6 +141,7 @@ onMounted(() => {
     <h2>워크스페이스</h2>
     <p>환영합니다, {{ userStore.user?.name || '사용자' }}님!</p>
     <p>이메일: {{ userStore.user?.email || 'test@test.com' }}</p>
+    <button @click="handleReport">📊 진행률 리포트 보기</button>
     <button @click="handleLogout">로그아웃</button>
 
     <form @submit.prevent="createWorkspace">
