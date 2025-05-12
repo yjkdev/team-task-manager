@@ -49,3 +49,5 @@ end
 gem 'jwt'
 
 gem 'rack-cors'
+
+gem 'whenever', require: false
