@@ -1195,3 +1195,57 @@ DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rail
 Completed 200 OK in 216ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 751)
 
 
+Started POST "/login" for ::1 at 2025-05-12 14:24:20 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"email"=>"tjftngus1@naver.com", "password"=>"[FILTERED]", "session"=>{"email"=>"tjftngus1@naver.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tjftngus1@naver.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from create at /home/jit/team-task-manager/backend/app/controllers/sessions_controller.rb:7)
+Completed 200 OK in 360ms (Views: 0.2ms | ActiveRecord: 3.3ms | Allocations: 55954)
+
+
+Started GET "/workspaces" for ::1 at 2025-05-12 14:24:20 +0900
+Processing by WorkspacesController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 260)
+
+
+Started POST "/login" for ::1 at 2025-05-12 14:34:33 +0900
+Processing by SessionsController#create as HTML
+  Parameters: {"email"=>"tjftngus1@naver.com", "password"=>"[FILTERED]", "session"=>{"email"=>"tjftngus1@naver.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tjftngus1@naver.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from create at /home/jit/team-task-manager/backend/app/controllers/sessions_controller.rb:7)
+Completed 200 OK in 217ms (Views: 0.3ms | ActiveRecord: 7.9ms | Allocations: 1156)
+
+
+Started GET "/workspaces" for ::1 at 2025-05-12 14:34:33 +0900
+Processing by WorkspacesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mWorkspace Load (0.1ms)[0m  [1m[34mSELECT "workspaces".* FROM "workspaces" INNER JOIN "user_workspaces" ON "workspaces"."id" = "user_workspaces"."workspace_id" WHERE "user_workspaces"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/workspaces_controller.rb:22:in `index'
+Completed 200 OK in 58ms (Views: 10.3ms | ActiveRecord: 0.9ms | Allocations: 17726)
+
+
+Started POST "/workspaces" for ::1 at 2025-05-12 14:34:55 +0900
+Processing by WorkspacesController#create as HTML
+  Parameters: {"workspace"=>{"name"=>"설수현의 할 일"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize_request'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/workspaces_controller.rb:4:in `create'
+  [1m[36mWorkspace Create (1.6ms)[0m  [1m[32mINSERT INTO "workspaces" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "설수현의 할 일"], ["created_at", "2025-05-12 05:34:55.302687"], ["updated_at", "2025-05-12 05:34:55.302687"]]
+  ↳ app/controllers/workspaces_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (10.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/workspaces_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/workspaces_controller.rb:5:in `create'
+  [1m[36mUserWorkspace Create (1.1ms)[0m  [1m[32mINSERT INTO "user_workspaces" ("user_id", "workspace_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["workspace_id", 2], ["created_at", "2025-05-12 05:34:55.331605"], ["updated_at", "2025-05-12 05:34:55.331605"]]
+  ↳ app/controllers/workspaces_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/workspaces_controller.rb:5:in `create'
+Completed 201 Created in 38ms (Views: 0.4ms | ActiveRecord: 13.3ms | Allocations: 23676)
+
+
