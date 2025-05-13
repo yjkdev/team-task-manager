@@ -9946,3 +9946,1261 @@ Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.1ms | Allocations: 1643)
   ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
   ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 01:45:04.433060"], ["created_at", "2025-05-13 01:45:04.449988"], ["updated_at", "2025-05-13 01:45:04.449988"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 01:45:04.453643"], ["created_at", "2025-05-13 01:45:04.455471"], ["updated_at", "2025-05-13 01:45:04.455471"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 01:45:04.459043"], ["created_at", "2025-05-13 01:45:04.461073"], ["updated_at", "2025-05-13 01:45:04.461073"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 01:45:04.464384"], ["created_at", "2025-05-13 01:45:04.466624"], ["updated_at", "2025-05-13 01:45:04.466624"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 01:45:04.470251"], ["created_at", "2025-05-13 01:45:04.472206"], ["updated_at", "2025-05-13 01:45:04.472206"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 01:45:04.475739"], ["created_at", "2025-05-13 01:45:04.477675"], ["updated_at", "2025-05-13 01:45:04.477675"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 01:48:03.968511"], ["created_at", "2025-05-13 01:48:03.986310"], ["updated_at", "2025-05-13 01:48:03.986310"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 01:48:03.994407"], ["created_at", "2025-05-13 01:48:03.996118"], ["updated_at", "2025-05-13 01:48:03.996118"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 01:48:03.998881"], ["created_at", "2025-05-13 01:48:04.000603"], ["updated_at", "2025-05-13 01:48:04.000603"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 01:48:04.004140"], ["created_at", "2025-05-13 01:48:04.006086"], ["updated_at", "2025-05-13 01:48:04.006086"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 01:48:04.008935"], ["created_at", "2025-05-13 01:48:04.010509"], ["updated_at", "2025-05-13 01:48:04.010509"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 01:48:04.013147"], ["created_at", "2025-05-13 01:48:04.014716"], ["updated_at", "2025-05-13 01:48:04.014716"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 01:51:03.530990"], ["created_at", "2025-05-13 01:51:03.549168"], ["updated_at", "2025-05-13 01:51:03.549168"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 01:51:03.556687"], ["created_at", "2025-05-13 01:51:03.558862"], ["updated_at", "2025-05-13 01:51:03.558862"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 01:51:03.562023"], ["created_at", "2025-05-13 01:51:03.563812"], ["updated_at", "2025-05-13 01:51:03.563812"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 01:51:03.566962"], ["created_at", "2025-05-13 01:51:03.568867"], ["updated_at", "2025-05-13 01:51:03.568867"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 01:51:03.571606"], ["created_at", "2025-05-13 01:51:03.573374"], ["updated_at", "2025-05-13 01:51:03.573374"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 01:51:03.576119"], ["created_at", "2025-05-13 01:51:03.577719"], ["updated_at", "2025-05-13 01:51:03.577719"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 01:54:04.089691"], ["created_at", "2025-05-13 01:54:04.107542"], ["updated_at", "2025-05-13 01:54:04.107542"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 01:54:04.115353"], ["created_at", "2025-05-13 01:54:04.117209"], ["updated_at", "2025-05-13 01:54:04.117209"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 01:54:04.120167"], ["created_at", "2025-05-13 01:54:04.121958"], ["updated_at", "2025-05-13 01:54:04.121958"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 01:54:04.125043"], ["created_at", "2025-05-13 01:54:04.126922"], ["updated_at", "2025-05-13 01:54:04.126922"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 01:54:04.129711"], ["created_at", "2025-05-13 01:54:04.131532"], ["updated_at", "2025-05-13 01:54:04.131532"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 01:54:04.135043"], ["created_at", "2025-05-13 01:54:04.136707"], ["updated_at", "2025-05-13 01:54:04.136707"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.4ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 01:57:03.419639"], ["created_at", "2025-05-13 01:57:03.437297"], ["updated_at", "2025-05-13 01:57:03.437297"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 01:57:03.446180"], ["created_at", "2025-05-13 01:57:03.449482"], ["updated_at", "2025-05-13 01:57:03.449482"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.4ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 01:57:03.455084"], ["created_at", "2025-05-13 01:57:03.458479"], ["updated_at", "2025-05-13 01:57:03.458479"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 01:57:03.462799"], ["created_at", "2025-05-13 01:57:03.464907"], ["updated_at", "2025-05-13 01:57:03.464907"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 01:57:03.468812"], ["created_at", "2025-05-13 01:57:03.470948"], ["updated_at", "2025-05-13 01:57:03.470948"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 01:57:03.475000"], ["created_at", "2025-05-13 01:57:03.477241"], ["updated_at", "2025-05-13 01:57:03.477241"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 02:00:03.935325"], ["created_at", "2025-05-13 02:00:03.955381"], ["updated_at", "2025-05-13 02:00:03.955381"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.4ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 02:00:03.964141"], ["created_at", "2025-05-13 02:00:03.966420"], ["updated_at", "2025-05-13 02:00:03.966420"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:00:03.970621"], ["created_at", "2025-05-13 02:00:03.973169"], ["updated_at", "2025-05-13 02:00:03.973169"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:00:03.976905"], ["created_at", "2025-05-13 02:00:03.979111"], ["updated_at", "2025-05-13 02:00:03.979111"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.4ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:00:03.982572"], ["created_at", "2025-05-13 02:00:03.986673"], ["updated_at", "2025-05-13 02:00:03.986673"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:00:03.991406"], ["created_at", "2025-05-13 02:00:03.993592"], ["updated_at", "2025-05-13 02:00:03.993592"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 02:03:04.293179"], ["created_at", "2025-05-13 02:03:04.308932"], ["updated_at", "2025-05-13 02:03:04.308932"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 02:03:04.317832"], ["created_at", "2025-05-13 02:03:04.319582"], ["updated_at", "2025-05-13 02:03:04.319582"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:03:04.322446"], ["created_at", "2025-05-13 02:03:04.324131"], ["updated_at", "2025-05-13 02:03:04.324131"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:03:04.326935"], ["created_at", "2025-05-13 02:03:04.329388"], ["updated_at", "2025-05-13 02:03:04.329388"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:03:04.332467"], ["created_at", "2025-05-13 02:03:04.334300"], ["updated_at", "2025-05-13 02:03:04.334300"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.1ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:03:04.338160"], ["created_at", "2025-05-13 02:03:04.340174"], ["updated_at", "2025-05-13 02:03:04.340174"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 02:06:02.577138"], ["created_at", "2025-05-13 02:06:02.589543"], ["updated_at", "2025-05-13 02:06:02.589543"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 02:06:02.596157"], ["created_at", "2025-05-13 02:06:02.597953"], ["updated_at", "2025-05-13 02:06:02.597953"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:06:02.601481"], ["created_at", "2025-05-13 02:06:02.603581"], ["updated_at", "2025-05-13 02:06:02.603581"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:06:02.606637"], ["created_at", "2025-05-13 02:06:02.608682"], ["updated_at", "2025-05-13 02:06:02.608682"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:06:02.612382"], ["created_at", "2025-05-13 02:06:02.614253"], ["updated_at", "2025-05-13 02:06:02.614253"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:06:02.618012"], ["created_at", "2025-05-13 02:06:02.619912"], ["updated_at", "2025-05-13 02:06:02.619912"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 02:09:03.076684"], ["created_at", "2025-05-13 02:09:03.092364"], ["updated_at", "2025-05-13 02:09:03.092364"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 02:09:03.101563"], ["created_at", "2025-05-13 02:09:03.103766"], ["updated_at", "2025-05-13 02:09:03.103766"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:09:03.107989"], ["created_at", "2025-05-13 02:09:03.110130"], ["updated_at", "2025-05-13 02:09:03.110130"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.5ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:09:03.114903"], ["created_at", "2025-05-13 02:09:03.119071"], ["updated_at", "2025-05-13 02:09:03.119071"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:09:03.124033"], ["created_at", "2025-05-13 02:09:03.126320"], ["updated_at", "2025-05-13 02:09:03.126320"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:09:03.132491"], ["created_at", "2025-05-13 02:09:03.135910"], ["updated_at", "2025-05-13 02:09:03.135910"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 02:12:03.917815"], ["created_at", "2025-05-13 02:12:03.933446"], ["updated_at", "2025-05-13 02:12:03.933446"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.1ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 02:12:03.942749"], ["created_at", "2025-05-13 02:12:03.944483"], ["updated_at", "2025-05-13 02:12:03.944483"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:12:03.947483"], ["created_at", "2025-05-13 02:12:03.949294"], ["updated_at", "2025-05-13 02:12:03.949294"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:12:03.952809"], ["created_at", "2025-05-13 02:12:03.955142"], ["updated_at", "2025-05-13 02:12:03.955142"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.1ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:12:03.958737"], ["created_at", "2025-05-13 02:12:03.960452"], ["updated_at", "2025-05-13 02:12:03.960452"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:12:03.963397"], ["created_at", "2025-05-13 02:12:03.965121"], ["updated_at", "2025-05-13 02:12:03.965121"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 02:15:04.826456"], ["created_at", "2025-05-13 02:15:04.843136"], ["updated_at", "2025-05-13 02:15:04.843136"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 02:15:04.851827"], ["created_at", "2025-05-13 02:15:04.854384"], ["updated_at", "2025-05-13 02:15:04.854384"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.1ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:15:04.858947"], ["created_at", "2025-05-13 02:15:04.860666"], ["updated_at", "2025-05-13 02:15:04.860666"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.1ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:15:04.863630"], ["created_at", "2025-05-13 02:15:04.865288"], ["updated_at", "2025-05-13 02:15:04.865288"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:15:04.868186"], ["created_at", "2025-05-13 02:15:04.869923"], ["updated_at", "2025-05-13 02:15:04.869923"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.1ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:15:04.873058"], ["created_at", "2025-05-13 02:15:04.874722"], ["updated_at", "2025-05-13 02:15:04.874722"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 02:18:04.574100"], ["created_at", "2025-05-13 02:18:04.591537"], ["updated_at", "2025-05-13 02:18:04.591537"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 02:18:04.603487"], ["created_at", "2025-05-13 02:18:04.605847"], ["updated_at", "2025-05-13 02:18:04.605847"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:18:04.609185"], ["created_at", "2025-05-13 02:18:04.610892"], ["updated_at", "2025-05-13 02:18:04.610892"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:18:04.613484"], ["created_at", "2025-05-13 02:18:04.615035"], ["updated_at", "2025-05-13 02:18:04.615035"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:18:04.617676"], ["created_at", "2025-05-13 02:18:04.619274"], ["updated_at", "2025-05-13 02:18:04.619274"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:18:04.623361"], ["created_at", "2025-05-13 02:18:04.625414"], ["updated_at", "2025-05-13 02:18:04.625414"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 02:21:04.276253"], ["created_at", "2025-05-13 02:21:04.294172"], ["updated_at", "2025-05-13 02:21:04.294172"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 02:21:04.304955"], ["created_at", "2025-05-13 02:21:04.306889"], ["updated_at", "2025-05-13 02:21:04.306889"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:21:04.310307"], ["created_at", "2025-05-13 02:21:04.312046"], ["updated_at", "2025-05-13 02:21:04.312046"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:21:04.314938"], ["created_at", "2025-05-13 02:21:04.316745"], ["updated_at", "2025-05-13 02:21:04.316745"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:21:04.319568"], ["created_at", "2025-05-13 02:21:04.321241"], ["updated_at", "2025-05-13 02:21:04.321241"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:21:04.323817"], ["created_at", "2025-05-13 02:21:04.325345"], ["updated_at", "2025-05-13 02:21:04.325345"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 02:24:02.589228"], ["created_at", "2025-05-13 02:24:02.603247"], ["updated_at", "2025-05-13 02:24:02.603247"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 02:24:02.611148"], ["created_at", "2025-05-13 02:24:02.613004"], ["updated_at", "2025-05-13 02:24:02.613004"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:24:02.616043"], ["created_at", "2025-05-13 02:24:02.618092"], ["updated_at", "2025-05-13 02:24:02.618092"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:24:02.621925"], ["created_at", "2025-05-13 02:24:02.623707"], ["updated_at", "2025-05-13 02:24:02.623707"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:24:02.626590"], ["created_at", "2025-05-13 02:24:02.628511"], ["updated_at", "2025-05-13 02:24:02.628511"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:24:02.631826"], ["created_at", "2025-05-13 02:24:02.633842"], ["updated_at", "2025-05-13 02:24:02.633842"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 02:27:04.207117"], ["created_at", "2025-05-13 02:27:04.223639"], ["updated_at", "2025-05-13 02:27:04.223639"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 02:27:04.232322"], ["created_at", "2025-05-13 02:27:04.234263"], ["updated_at", "2025-05-13 02:27:04.234263"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:27:04.237292"], ["created_at", "2025-05-13 02:27:04.239120"], ["updated_at", "2025-05-13 02:27:04.239120"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:27:04.241877"], ["created_at", "2025-05-13 02:27:04.243543"], ["updated_at", "2025-05-13 02:27:04.243543"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:27:04.246256"], ["created_at", "2025-05-13 02:27:04.247922"], ["updated_at", "2025-05-13 02:27:04.247922"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:27:04.250605"], ["created_at", "2025-05-13 02:27:04.252415"], ["updated_at", "2025-05-13 02:27:04.252415"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 02:30:03.864963"], ["created_at", "2025-05-13 02:30:03.882982"], ["updated_at", "2025-05-13 02:30:03.882982"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 02:30:03.890983"], ["created_at", "2025-05-13 02:30:03.892894"], ["updated_at", "2025-05-13 02:30:03.892894"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:30:03.896157"], ["created_at", "2025-05-13 02:30:03.898083"], ["updated_at", "2025-05-13 02:30:03.898083"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:30:03.901512"], ["created_at", "2025-05-13 02:30:03.903253"], ["updated_at", "2025-05-13 02:30:03.903253"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:30:03.906240"], ["created_at", "2025-05-13 02:30:03.908082"], ["updated_at", "2025-05-13 02:30:03.908082"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:30:03.910815"], ["created_at", "2025-05-13 02:30:03.912511"], ["updated_at", "2025-05-13 02:30:03.912511"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  ↳ lib/tasks/task_progress.rake:6:in `block (2 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 1]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 1], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 1], ["total_tasks", 7], ["done_tasks", 2], ["progress_rate", 28.6], ["collected_at", "2025-05-13 02:33:04.553956"], ["created_at", "2025-05-13 02:33:04.572739"], ["updated_at", "2025-05-13 02:33:04.572739"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 2]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 2], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["total_tasks", 1], ["done_tasks", 1], ["progress_rate", 100.0], ["collected_at", "2025-05-13 02:33:04.582027"], ["created_at", "2025-05-13 02:33:04.584091"], ["updated_at", "2025-05-13 02:33:04.584091"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 3]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 3], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 3], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:33:04.587191"], ["created_at", "2025-05-13 02:33:04.589473"], ["updated_at", "2025-05-13 02:33:04.589473"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 4]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 4], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 4], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:33:04.593445"], ["created_at", "2025-05-13 02:33:04.595554"], ["updated_at", "2025-05-13 02:33:04.595554"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 5]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 5], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.2ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 5], ["total_tasks", 5], ["done_tasks", 3], ["progress_rate", 60.0], ["collected_at", "2025-05-13 02:33:04.598635"], ["created_at", "2025-05-13 02:33:04.600307"], ["updated_at", "2025-05-13 02:33:04.600307"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ?[0m  [["assigned_user_id", 6]]
+  ↳ lib/tasks/task_progress.rake:8:in `block (3 levels) in <main>'
+  [1m[36mTask Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."assigned_user_id" = ? AND "tasks"."status" = ?[0m  [["assigned_user_id", 6], ["status", "done"]]
+  ↳ lib/tasks/task_progress.rake:9:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTaskProgressReport Create (0.3ms)[0m  [1m[32mINSERT INTO "task_progress_reports" ("user_id", "total_tasks", "done_tasks", "progress_rate", "collected_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 6], ["total_tasks", 0], ["done_tasks", 0], ["progress_rate", 0.0], ["collected_at", "2025-05-13 02:33:04.602979"], ["created_at", "2025-05-13 02:33:04.604542"], ["updated_at", "2025-05-13 02:33:04.604542"]]
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/task_progress.rake:12:in `block (3 levels) in <main>'
