@@ -1,5 +1,10 @@
 ## 設計書 - Team Task Manager
 
+### 0. 概要
+* 本ツールは、複数のユーザーが所属するワークスペース単位でタスクを共有・管理し、進捗を可視化することを目的としています。
+* 本プロジェクトでは、VueテンプレートにPugを導入し、各画面の記述に利用しています。
+* このバッチ処理は、cron + rake + Procfile.dev + foreman を活用し、開発サーバー起動と同時に定期集計が行われるよう設計しています。
+
 ---
 
 ### 1. 画面仕様書（画面構成、入力項目、エラー処理など）
@@ -87,15 +92,18 @@
 
 #### ● リレーション
 
-* User has\_many \:user\_workspaces, has\_many \:workspaces, has\_many \:assigned\_tasks (through tasks)
-* Workspace has\_many \:tasks
+* User has_many :user_workspaces, has_many :workspaces, through: :user_workspaces  
+* Workspace has_many :user_workspaces, has_many :users, through: :user_workspaces
 * Task belongs\_to \:workspace, belongs\_to \:assigned\_user (User)
 
-※ ER図は本図省略
+#### ● ER図 URL
+https://www.erdcloud.com/d/E78ge2i7xqvqm7pcy
 
 ---
 
 ### 3. 機能設計書（APIや画面単位の処理フロー・バリデーション）
+#### ● API TEST URL
+https://github.com/yjkdev/team-task-manager/issues/9
 
 #### ● 認証機能
 
@@ -115,6 +123,11 @@
 * PUT /workspaces/\:id/tasks/\:id: タスク編集
 * DELETE /workspaces/\:id/tasks/\:id: タスク削除
 * PATCH /workspaces/\:id/tasks/\:id/toggle\_status: 状態切替(todo/done)
+
+#### ● タスク作成フロー
+* ユーザー入力（タイトル・説明）→
+* APIリクエスト（POST /workspaces/:id/tasks）→
+* TasksController#create → TaskService#create_task → Task.* create! → レスポンス返却 → 画面表示更新
 
 #### ● バッチ処理（Rake）
 
@@ -148,4 +161,5 @@
 #### ● その他
 
 * GitHub（バージョン管理）
-* Pug（※未使用）
+* Pug（使用）
+* Taskモデルのバリデーション（title, workspace_id, assigned_user_idの有無）をspec/models/task_spec.rbにて検証済み。
