@@ -50,7 +50,7 @@ Vue.js + Ruby on Railsを活用したSaaS型チーム勤務共有ツールです
 cd backend
 bundle install
 rails db:create db:migrate db:seed
-rails s
+foreman start -f Procfile.dev
 ```
 ### 2️⃣ フロントエンド（Vue.js）の起動
 ```bash
@@ -61,15 +61,15 @@ npm run dev
 
 ## 🔥工夫したポイント
 
-### 1. Vue.jsの状態管理(Pinia)を活用
-- Piniaを使ってログイン情報を状態管理
-- ローカルストレージに保持してリロード後も維持
+### 1. バッチ処理を自動化し、定期的な実行環境を整備した点
+- Rakeタスクを使って、各ユーザーのタスク進捗率（完了率）を集計し、task_progress_reportsテーブルに保存する処理を実装しました。
+- wheneverとcronを組み合わせて、3分ごとに定期実行されるバッチ処理としてスケジュールを構築しました。
 - Routerのナビゲーションガード設定
 
 ### 2. JWT(JSON Web Token)認証方式の導入
 - Rails API と Vue.js の通信をセキュアにするため JWTを利用
 - ログイン時に登録情報を含めたトークンを発行
-- Axiosのインターセプタで全設定
+- Procfile.devを使ってRailsサーバー起動と同時にcronスケジュールの設定も一括で行えるようにし、手動操作なしで自動起動可能な開発環境を整備しました。
 
 ## ✅ 単体テスト実行方法
 
