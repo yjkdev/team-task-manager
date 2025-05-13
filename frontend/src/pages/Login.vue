@@ -20,28 +20,29 @@ const handleLogin = async () => {
 
     const { token, user } = response.data
     userStore.setUserData({ token, user })
-    console.log('로그인 성공:', response.data)
+    console.log('ログイン成功:', response.data)
 
-    router.push('/workspace') // 실제 존재하는 페이지로 수정
+    router.push('/workspace')
   } catch (err) {
-    console.error('로그인 실패:', err)
-    error.value = err.response?.data?.error || '로그인 중 오류가 발생했습니다.'
+    console.error('ログイン失敗:', err)
+    error.value = err.response?.data?.error || 'ログイン中にエラーが発生しました。'
   }
 }
 </script>
 
-<template>
-  <div>
-    <h2>로그인</h2>
-    <form @submit.prevent="handleLogin">
-      <div><label>이메일</label><input v-model="email" type="email" required /></div>
-      <div><label>비밀번호</label><input v-model="password" type="password" required /></div>
-      <button type="submit">로그인</button>
-    </form>
-    <p v-if="error" style="color: red;">{{ error }}</p>
-    <p>
-      계정이 없으신가요?
-      <router-link to="/signup">회원가입</router-link>
-    </p>
-  </div>
+<template lang="pug">
+div
+  h2 ログイン
+  form(@submit.prevent="handleLogin")
+    div
+      label メールアドレス
+      input(v-model="email" type="email" required)
+    div
+      label パスワード
+      input(v-model="password" type="password" required)
+    button(type="submit") ログイン
+  p(v-if="error" style="color: red") {{ error }}
+  p
+    | アカウントをお持ちでない方はこちら：
+    router-link(to="/signup") 会員登録
 </template>

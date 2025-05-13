@@ -13,7 +13,7 @@ const router = useRouter()
 const handleSignup = async () => {
   error.value = null
   if (password.value !== passwordConfirmation.value) {
-    error.value = '비밀번호가 일치하지 않습니다.'
+    error.value = 'パスワードが一致しません。'
     return
   }
 
@@ -26,25 +26,31 @@ const handleSignup = async () => {
         password_confirmation: passwordConfirmation.value
       }
     })
-    console.log('회원가입 성공:', response.data)
+    console.log('会員登録成功:', response.data)
     router.push('/login')
   } catch (err) {
-    console.error('회원가입 실패:', err)
-    error.value = err.response?.data?.error || '회원가입 중 오류가 발생했습니다.'
+    console.error('会員登録失敗:', err)
+    error.value = err.response?.data?.error || '会員登録中にエラーが発生しました。'
   }
 }
 </script>
 
-<template>
-  <div>
-    <h2>회원가입</h2>
-    <form @submit.prevent="handleSignup">
-      <div><label>이름</label><input v-model="name" type="text" required /></div>
-      <div><label>이메일</label><input v-model="email" type="email" required /></div>
-      <div><label>비밀번호</label><input v-model="password" type="password" required /></div>
-      <div><label>비밀번호 확인</label><input v-model="passwordConfirmation" type="password" required /></div>
-      <button type="submit">회원가입</button>
-    </form>
-    <p v-if="error" style="color: red;">{{ error }}</p>
-  </div>
+<template lang="pug">
+div
+  h2 会員登録
+  form(@submit.prevent="handleSignup")
+    div
+      label 名前
+      input(v-model="name" type="text" required)
+    div
+      label メールアドレス
+      input(v-model="email" type="email" required)
+    div
+      label パスワード
+      input(v-model="password" type="password" required)
+    div
+      label パスワード確認
+      input(v-model="passwordConfirmation" type="password" required)
+    button(type="submit") 会員登録
+  p(v-if="error" style="color: red") {{ error }}
 </template>

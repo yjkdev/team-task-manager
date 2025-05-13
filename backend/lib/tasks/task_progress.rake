@@ -24,4 +24,13 @@ namespace :task_progress do
       puts "---------------------------"
     end
   end
+
+  desc "3分ごとにタスク進捗レポートを集計（手動ループ版）"
+  task report_loop: :environment do
+    loop do
+      Rake::Task["task_progress:report"].invoke
+      Rake::Task["task_progress:report"].reenable
+      sleep 180 # 3분 대기
+    end
+  end
 end

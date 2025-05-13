@@ -22,8 +22,8 @@ const fetchWorkspaces = async () => {
     const response = await api.get('/workspaces')
     workspaces.value = response.data
   } catch (err) {
-    console.error('워크스페이스 목록 조회 실패:', err)
-    error.value = '워크스페이스를 불러오는 중 오류가 발생했습니다.'
+    console.error('ワークスペース一覧の取得に失敗:', err)
+    error.value = 'ワークスペースの取得中にエラーが発生しました。'
   }
 }
 
@@ -36,8 +36,8 @@ const createWorkspace = async () => {
     workspaces.value.push(response.data.workspace)
     workspaceName.value = ''
   } catch (err) {
-    console.error('워크스페이스 생성 실패:', err)
-    error.value = err.response?.data?.error || '생성 중 오류가 발생했습니다.'
+    console.error('ワークスペース作成に失敗:', err)
+    error.value = err.response?.data?.error || '作成中にエラーが発生しました。'
   }
 }
 
@@ -50,8 +50,8 @@ const fetchTasks = async (workspaceId) => {
     const response = await api.get(`/workspaces/${workspaceId}/tasks`, { params })
     tasks.value = response.data
   } catch (err) {
-    console.error('태스크 목록 조회 실패:', err)
-    error.value = '태스크를 불러오는 중 오류가 발생했습니다.'
+    console.error('タスク一覧の取得に失敗:', err)
+    error.value = 'タスクの取得中にエラーが発生しました。'
   }
 }
 
@@ -86,8 +86,8 @@ const createOrUpdateTask = async () => {
     taskDescription.value = ''
     editingTaskId.value = null
   } catch (err) {
-    console.error('태스크 저장 실패:', err)
-    error.value = err.response?.data?.error || '태스크 저장 중 오류가 발생했습니다.'
+    console.error('タスク保存に失敗:', err)
+    error.value = err.response?.data?.error || 'タスク保存中にエラーが発生しました。'
   }
 }
 
@@ -96,8 +96,8 @@ const deleteTask = async (taskId) => {
     await api.delete(`/workspaces/${selectedWorkspaceId.value}/tasks/${taskId}`)
     tasks.value = tasks.value.filter(task => task.id !== taskId)
   } catch (err) {
-    console.error('태스크 삭제 실패:', err)
-    error.value = '태스크 삭제 중 오류가 발생했습니다.'
+    console.error('タスク削除に失敗:', err)
+    error.value = 'タスク削除中にエラーが発生しました。'
   }
 }
 
@@ -107,8 +107,8 @@ const toggleStatus = async (taskId) => {
     const index = tasks.value.findIndex(task => task.id === taskId)
     if (index !== -1) tasks.value[index].status = response.data.status
   } catch (err) {
-    console.error('상태 토글 실패:', err)
-    error.value = '상태 변경 중 오류가 발생했습니다.'
+    console.error('ステータス切替に失敗:', err)
+    error.value = 'ステータス変更中にエラーが発生しました。'
   }
 }
 
@@ -136,58 +136,49 @@ onMounted(() => {
 })
 </script>
 
-<template>
-  <div>
-    <h2>워크스페이스</h2>
-    <p>환영합니다, {{ userStore.user?.name || '사용자' }}님!</p>
-    <p>이메일: {{ userStore.user?.email || 'test@test.com' }}</p>
-    <button @click="handleReport">📊 진행률 리포트 보기</button>
-    <button @click="handleLogout">로그아웃</button>
+<template lang="pug">
+div
+  h2 ワークスペース
+  p ようこそ、{{ userStore.user?.name || 'ユーザー' }}さん！
+  p メールアドレス: {{ userStore.user?.email || 'test@test.com' }}
+  button(@click="handleReport") 📊 進捗レポートを見る
+  button(@click="handleLogout") ログアウト
 
-    <form @submit.prevent="createWorkspace">
-      <input v-model="workspaceName" placeholder="워크스페이스 이름 입력" />
-      <button type="submit">생성</button>
-    </form>
-    <p v-if="error" style="color: red;">{{ error }}</p>
-    <ul>
-      <li
-        v-for="ws in workspaces"
-        :key="ws.id"
-        @click="handleWorkspaceClick(ws.id)"
-        style="cursor: pointer;"
-      >
-        {{ ws.name }}
-      </li>
-    </ul>
+  form(@submit.prevent="createWorkspace")
+    input(v-model="workspaceName" placeholder="ワークスペース名を入力")
+    button(type="submit") 作成
 
-    <div v-if="selectedWorkspaceId">
-      <h3>태스크 목록</h3>
+  p(v-if="error" style="color: red") {{ error }}
 
-      <div>
-        상태:
-        <select v-model="statusFilter">
-          <option value="">전체</option>
-          <option value="todo">할 일</option>
-          <option value="done">완료</option>
-        </select>
-        카테고리:
-        <input v-model="categoryFilter" placeholder="카테고리" />
-      </div>
+  ul
+    li(
+      v-for="ws in workspaces"
+      :key="ws.id"
+      @click="handleWorkspaceClick(ws.id)"
+      style="cursor: pointer;"
+    ) {{ ws.name }}
 
-      <form @submit.prevent="createOrUpdateTask">
-        <input v-model="taskTitle" placeholder="업무 제목" />
-        <input v-model="taskDescription" placeholder="업무 설명" />
-        <button type="submit">업무 {{ editingTaskId ? '수정' : '추가' }}</button>
-      </form>
+  div(v-if="selectedWorkspaceId")
+    h3 タスク一覧
 
-      <ul>
-        <li v-for="task in tasks" :key="task.id">
-          {{ task.title }} - {{ task.description }} - {{ task.status }}
-          <button @click="() => toggleStatus(task.id)">상태 토글</button>
-          <button @click="() => startEdit(task)">수정</button>
-          <button @click="() => deleteTask(task.id)">삭제</button>
-        </li>
-      </ul>
-    </div>
-  </div>
+    div
+      | ステータス:
+      select(v-model="statusFilter")
+        option(value="") すべて
+        option(value="todo") やること
+        option(value="done") 完了
+      | カテゴリ:
+      input(v-model="categoryFilter" placeholder="カテゴリ")
+
+    form(@submit.prevent="createOrUpdateTask")
+      input(v-model="taskTitle" placeholder="タスク名")
+      input(v-model="taskDescription" placeholder="説明")
+      button(type="submit") タスク {{ editingTaskId ? '修正' : '追加' }}
+
+    ul
+      li(v-for="task in tasks" :key="task.id")
+        | {{ task.title }} - {{ task.description }} - {{ task.status }}
+        button(@click="() => toggleStatus(task.id)") ステータス切替
+        button(@click="() => startEdit(task)") 修正
+        button(@click="() => deleteTask(task.id)") 削除
 </template>

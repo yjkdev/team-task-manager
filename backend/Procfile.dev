@@ -1,0 +1,2 @@
+web: bundle exec rails s -p 3000
+cron: bundle exec rake task_progress:report_loop
