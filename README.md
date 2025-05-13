@@ -81,19 +81,13 @@ npm run dev
 ### 1. モデルテスト (Model Test)
 
 ```bash
-rspec spec/models
+bundle exec rspec spec/models/task_spec.rb
 ```
 
-### 2. APIテスト (Request Test)
+### 2. 全テストの一括実行
 
 ```bash
-rspec spec/requests
-```
-
-### 3. 全テストの一括実行
-
-```bash
-rspec
+bundle exec rspec
 ```
 
 ## 🖼️ 画面構成
